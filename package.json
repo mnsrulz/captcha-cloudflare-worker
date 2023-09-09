@@ -1,0 +1,16 @@
+{
+  "name": "captcha-cloudflare-worker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "esbuild src/server.ts --bundle --minify --platform=node --target=ES2022 --outfile=out/server.js --format=esm",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "esbuild": "^0.19.2"
+  }
+}
