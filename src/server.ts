@@ -1,10 +1,10 @@
 //import Jimp from 'jimp';
 import Tesseract from 'tesseract.js';
-import { createWorker } from 'tesseract.js';
+// import { createWorker } from 'tesseract.js';
 
-const w = await createWorker({
-    logger: m => console.log(m),
-});
+// const w = await createWorker({
+//     logger: m => console.log(m),
+// });
 const lang = 'eng+por';
 
 // const fun = async (request, env) => {
@@ -55,23 +55,23 @@ export default {
 
         try {
 
-            await w.loadLanguage(lang);
-            await w.initialize(lang);
-            await w.setParameters({
-                tessedit_char_whitelist: '0123456789',
-            });
+            // await w.loadLanguage(lang);
+            // await w.initialize(lang);
+            // await w.setParameters({
+            //     tessedit_char_whitelist: '0123456789',
+            // });
         
-            const { data: { text } } = await w.recognize(blobStream);
-            console.log(text);
-            await w.terminate();
+            // const { data: { text } } = await w.recognize(blobStream);
+            // console.log(text);
+            // await w.terminate();
 
-            // const tsresult = await Tesseract.recognize(
-            //     blobStream,
-            //     //imgPath,
-            //     'eng',
-            //     { logger: m => console.log(m) }
-            // )
-            //const { text } = tsresult.data;
+            const tsresult = await Tesseract.recognize(
+                blobStream,
+                //imgPath,
+                'eng',
+                { logger: m => console.log(m) }
+            )
+            const { text } = tsresult.data;
             result = {
                 text
             };
