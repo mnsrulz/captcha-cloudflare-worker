@@ -1,11 +1,8 @@
 # Top-level configuration
 name = "my-worker"
-main = "out/server.js"
+main = "./src/server.ts"
 compatibility_date = "2022-07-12"
 
-workers_dev = false
-route = { pattern = "example.org/*", zone_name = "example.org" }
-
-[build]
-command = "npm run build"
-cwd = "build_cwd"
+# [build]
+# command = "npm run build"
+# cwd = "build_cwd"
