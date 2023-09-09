@@ -12,9 +12,9 @@ const lang = 'eng+por';
 // }
 const u = `https://user-images.githubusercontent.com/1809086/262851444-681aeac1-0c80-4995-ab78-ad075d7bd04e.png`;
 
-async function getImageStream(){
+async function getImageStream() {
     const blobResponse = await fetch(u);
-    return await blobResponse.blob();    
+    return await blobResponse.blob();
 }
 
 export default {
@@ -23,14 +23,14 @@ export default {
         // return new Response('hello');
 
         let result = {};
-        
+
         const imageName = new URL(u).pathname.split('/').pop();
         const imgPath = `./${imageName}.png`;
         const blobStream = await getImageStream();
-        
+
         // const image = await Jimp.read(u);
 
-        
+
 
         // image.crop(21, 7, 36, 12);
         // image.contrast(0.2)
@@ -53,36 +53,36 @@ export default {
         // image.dither16();
         // image.write(imgPath);
 
-        try {
+        // try {
 
-            // await w.loadLanguage(lang);
-            // await w.initialize(lang);
-            // await w.setParameters({
-            //     tessedit_char_whitelist: '0123456789',
-            // });
-        
-            // const { data: { text } } = await w.recognize(blobStream);
-            // console.log(text);
-            // await w.terminate();
+        // await w.loadLanguage(lang);
+        // await w.initialize(lang);
+        // await w.setParameters({
+        //     tessedit_char_whitelist: '0123456789',
+        // });
 
-            const tsresult = await Tesseract.recognize(
-                blobStream,
-                //imgPath,
-                'eng',
-                { logger: m => console.log(m) }
-            )
-            const { text } = tsresult.data;
-            result = {
-                text
-            };
+        // const { data: { text } } = await w.recognize(blobStream);
+        // console.log(text);
+        // await w.terminate();
 
-        } catch (error) {
-            result = error;
-            // res.json({
-            //     errorMessage: `an error occurred while recognizing the text using Tesseract`,
-            //     innerError: error
-            // });
-        }
+        const tsresult = await Tesseract.recognize(
+            blobStream,
+            //imgPath,
+            'eng',
+            { logger: m => console.log(m) }
+        )
+        const { text } = tsresult.data;
+        result = {
+            text
+        };
+
+        // } catch (error) {
+        //     result = error;
+        //     // res.json({
+        //     //     errorMessage: `an error occurred while recognizing the text using Tesseract`,
+        //     //     innerError: error
+        //     // });
+        // }
         return new Response(JSON.stringify(result), {
             headers: { 'Content-Type': 'text/html' }
         });
