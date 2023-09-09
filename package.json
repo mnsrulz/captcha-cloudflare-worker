@@ -2,7 +2,7 @@
   "name": "captcha-cloudflare-worker",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "type": "module",
   "scripts": {
     "build": "esbuild src/server.ts --bundle --minify --outfile=out/server.js --format=esm",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,6 +11,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "esbuild": "^0.19.2"
+    "esbuild": "^0.19.2",
+    "jimp": "^0.22.10",
+    "tesseract.js": "^4.1.2"
   }
 }
