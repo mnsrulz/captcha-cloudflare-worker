@@ -1,8 +1,16 @@
-const Jimp = require('jimp');
+import Jimp from 'jimp';
 // import { createWorker } from 'tesseract.js';
-const Tesseract = require('tesseract.js');
+import Tesseract from 'tesseract.js';
+
+// const fun = async (request, env) => {
+
+// }
+
 export default {
-    fetch: async (request, env) => {
+    // fetch: fun
+    fetch: async () => {
+        // return new Response('hello');
+
         const u = `https://user-images.githubusercontent.com/1809086/262851444-681aeac1-0c80-4995-ab78-ad075d7bd04e.png`;
         let result = {};
         const image = await Jimp.read(u);

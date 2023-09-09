@@ -1,6 +1,6 @@
 # Top-level configuration
 name = "my-worker"
-main = "./src/server.ts"
+main = "./out/server.js"
 compatibility_date = "2022-07-12"
 
 # [build]
