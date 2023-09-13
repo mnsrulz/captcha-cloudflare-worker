@@ -16,6 +16,19 @@ jobs:
         run: |
           npm install
           CI=false npm run build
+      # - name: Setup yt-dlp
+      #   uses: AnimMouse/setup-yt-dlp@v1
+      # - name: Install xmllint
+      #   run: sudo apt-get install -y libxml2-utils
+      - name: Install python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+          # cache: 'pip' # caching pip dependencies
+      - name: Install ytdlp
+        run: python3 -m pip install -U yt-dlp
+      - name: Dump ytdlp json
+        run: yt-dlp https://www.youtube.com/watch?v=BaW_jenozKc
       - name: Deploy 🚀
         uses: cloudflare/wrangler-action@v3
         with:
