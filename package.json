@@ -4,7 +4,7 @@
   "description": "",
   "type": "module",
   "scripts": {
-    "build": "esbuild src/server.ts --bundle --minify --outfile=out/server.js --format=esm",
+    "build": "esbuild src/server.ts --bundle --minify --outfile=out/server.js --platform=node --format=esm",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -12,8 +12,6 @@
   "license": "ISC",
   "devDependencies": {
     "esbuild": "^0.19.2",
-    "jimp": "^0.22.10",
-    "tesseract.js": "^4.1.2",
     "typescript": "^5.2.2"
   }
 }
